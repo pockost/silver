@@ -67,8 +67,10 @@ metadata.allow_tags = True
 
 
 def tax(obj):
-    return ("{} {:.2f}%".format(obj.sales_tax_name, obj.sales_tax_percent)
-            if obj.sales_tax_percent > 0 else '')
+    sales_tax_name = '' if obj.sales_tax_name is None else obj.sales_tax_name
+    sales_tax_percent = 0 if obj.sales_tax_percent is None else obj.sales_tax_percent
+    return ("{} {:.2f}%".format(sales_tax_name, sales_tax_percent)
+            if sales_tax_percent > 0 else '')
 tax.admin_order_field = 'sales_tax_percent'
 
 
