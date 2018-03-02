@@ -404,6 +404,9 @@ class BillingDocumentBase(models.Model):
                                            self.customer.billing_name,
                                            self.total, self.currency)
 
+    def __str__(self):
+        return self.__unicode__()
+
     @property
     def updateable_fields(self):
         return ['customer', 'provider', 'due_date', 'issue_date', 'paid_date',

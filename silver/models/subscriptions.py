@@ -114,6 +114,9 @@ class MeteredFeatureUnitsLog(models.Model):
     def __unicode__(self):
         return str(self.metered_feature.name)
 
+    def __str__(self):
+        return self.__unicode__()
+
 
 class Subscription(models.Model):
     class STATES(object):
@@ -998,6 +1001,9 @@ class Subscription(models.Model):
     def __unicode__(self):
         return '%s (%s)' % (self.customer, self.plan)
 
+    def __str__(self):
+        return self.__unicode__()
+
 
 class BillingLog(models.Model):
     subscription = models.ForeignKey('Subscription',
@@ -1028,6 +1034,9 @@ class BillingLog(models.Model):
         return '{sub} - {pro} - {inv} - {date}'.format(
             sub=self.subscription, pro=self.proforma,
             inv=self.invoice, date=self.billing_date)
+
+    def __str__(self):
+        return self.__unicode__()
 
 
 @receiver(pre_delete, sender=Customer)

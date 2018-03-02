@@ -108,3 +108,6 @@ class DocumentEntry(models.Model):
             quantity=self.quantity,
             product_code=self.product_code
         )
+
+    def __str__(self):
+        return self.__unicode__()

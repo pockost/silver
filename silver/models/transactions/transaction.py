@@ -298,6 +298,9 @@ class Transaction(models.Model):
     def __unicode__(self):
         return str(self.uuid)
 
+    def __str__(self):
+        return self.__unicode__()
+
 
 @receiver(post_transition)
 def post_transition_callback(sender, instance, name, source, target, **kwargs):

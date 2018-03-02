@@ -188,6 +188,9 @@ class PaymentMethod(models.Model):
                                       self.get_payment_processor_display(),
                                       self.pk)
 
+    def __str__(self):
+        return self.__unicode__()
+
 
 def create_transactions_for_issued_documents(payment_method):
     customer = payment_method.customer

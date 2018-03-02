@@ -129,6 +129,9 @@ class Plan(models.Model):
     def __unicode__(self):
         return str(self.name)
 
+    def __str__(self):
+        return self.__unicode__()
+
     @property
     def provider_flow(self):
         return self.provider.flow
@@ -165,3 +168,7 @@ class MeteredFeature(models.Model):
         fmt = '{name} ({price:.2f}$, {included:.2f} included)'
         return fmt.format(name=self.name, price=self.price_per_unit,
                           included=self.included_units)
+
+    def __str__(self):
+        return self.__unicode__()
+

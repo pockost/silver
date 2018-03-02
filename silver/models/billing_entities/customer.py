@@ -104,3 +104,6 @@ class Customer(BaseBillingEntity):
     @property
     def name(self):
         return "%s %s" % (self.first_name, self.last_name)
+
+    def __str__(self):
+        return self.name

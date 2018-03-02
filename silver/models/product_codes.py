@@ -20,3 +20,6 @@ class ProductCode(models.Model):
 
     def __unicode__(self):
         return str(self.value)
+
+    def __str__(self):
+        return self.__unicode__()
